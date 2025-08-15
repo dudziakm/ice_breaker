@@ -8,18 +8,17 @@ In 2002, Musk founded the space technology company SpaceX, becoming its CEO and 
 """
 
 
-if __name__ == '__main__':
-    print('Hello LangChain\n')
+if __name__ == "__main__":
+    print("Hello LangChain\n")
 
-    summary_template =f"""
+    summary_template = f"""
     given the information {information} about a person from I want you to create: 
     1. a short summary
     2. three interesting facts about them
     """
 
     summary_prompt_template = PromptTemplate(
-        input_variables=["information"],
-        template=summary_template
+        input_variables=["information"], template=summary_template
     )
 
     llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
@@ -29,8 +28,8 @@ if __name__ == '__main__':
 
     print(res)
 
-    print('\nAnd content:\n')
+    print("\nAnd content:\n")
 
     print(res.content)
 
-    print('\nBye LangChain\n')
+    print("\nBye LangChain\n")

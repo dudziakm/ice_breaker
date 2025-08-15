@@ -31,7 +31,7 @@ class ChatGroq:
         self.valid_models = [
             "llama-4-8b-instant",
             "llama-3.3-70b-versatile",
-            "llama-3.1-8b-instant"
+            "llama-3.1-8b-instant",
         ]
 
         if model not in self.valid_models:
@@ -70,7 +70,7 @@ def implement_set_api_key(api_key):
     Args:
         api_key (str): Your Groq API key
     """
-    os.environ['GROQ_API_KEY'] = api_key
+    os.environ["GROQ_API_KEY"] = api_key
 
 
 def check_api_key():
@@ -151,7 +151,7 @@ def main():
     try:
         # Test your set_api_key implementation
         print("🔑 Setting API key...")
-        implement_set_api_key('gsk_L8')
+        implement_set_api_key("gsk_L8")
 
         # Check if API key was set correctly
         check_api_key()

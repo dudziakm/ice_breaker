@@ -10,7 +10,7 @@ from langchain.agents import (
     create_react_agent,
     AgentExecutor,
 )
-
+from langchain import hub
 
 
 def lookup(name: str) -> str:
@@ -35,8 +35,17 @@ def lookup(name: str) -> str:
         )
     ]
 
+    react_prompt = hub.pull("hwchase17/react")
+    agent = create_react_agent(llm=llm, tools=tools_for_agent,prompt=react_prompt)
+    agent_executor = AgentExecutor(agent=agent, tools=tools_for_agent, verbose=True)
 
-    # return "https://www.linkedin.com/in/eden-marco/"
+    result = agent_executor.invoke(
+        input={"input":prompt_template.format_prompt(name_of_person=name)}
+    )
+
+    linked_profile_url = result["output"]
+    return linked_profile_url
+
 
 if __name__ == "__main__":
     linkedin_url = lookup(name="Eden Marco")

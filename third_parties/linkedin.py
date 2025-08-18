@@ -2,7 +2,6 @@ import os
 import requests
 
 from dotenv import load_dotenv
-from openai import responses
 
 load_dotenv()
 

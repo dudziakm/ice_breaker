@@ -4,6 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+aiohttp = ">=3.14.3"
 langchain = "*"
 langchain-openai = "*"
 langchain-community = "*"
